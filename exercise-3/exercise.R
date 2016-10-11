@@ -1,40 +1,41 @@
 # Create a vector of 100 employees ("Employee 1", "Employee 2", ... "Employee 100)
-
+employees <- paste('Employee', 1:100)
 
 # Create a vector of 2014 salaries using the runif function
-
+s.2014 <- runif(100)
 
 # Create a vector of 2015 salaries that are typically higher than the 2014 salaires (use runif again)
-
+s.2015 <- runif(100, min = .5, max = 1)
 
 # Create a data.frame 'salaries' by combining the vectors you just made
-
+salaries <- data.frame(s.2014=s.2014, s.2015=s.2015)
+row.names(salaries) <- employees
 
 # Create a column 'raise' that stores the size of the raise between 2014 and 2015
-
+salaries$raise <- s.2015 - s.2014
 
 # Create a column 'got.raise' that is TRUE if the person got a raise
-
+salaries$got.raise <- salaries$raise > 0
 
 # Retrieve values from your data frame to answer the following questions:
 
 # What was the 2015 salary of employee 57
-
+salaries$s.2015[57]
 
 # How many employees got a raise?
-
+sum(salaries$got.raise)
 
 # What was the value of the highest raise?
+max(salaries$raise)
 
-
-# What was the name of the employee who recieved the highest raise?
-
+# What was the name of the employee who recieved the highest raise? ???
+employees[]
 
 # What was the largest decrease in salaries between the two years?
-
+min(salaries$raise)
 
 # What was the name of the employee who recieved largest decrease in salary?
-
+salaries[order(salaries$raise)[1],]
 
 # What was the average salary increase?
 
