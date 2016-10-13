@@ -35,4 +35,4 @@ grants$organization[spending == max(spending)]
 grants$organization[spending == min(spending)]
 
 # How many grants were awarded in 2010?
-sum(spending[grants$start_year == 2010])
+length(spending[grants$start_year == 2010])
